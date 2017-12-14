@@ -1,0 +1,69 @@
+@keyframes sideMenuLeftAni
+{
+0% {
+    left: -300px;
+    opacity: 1;
+}
+100% {
+    left: 0;
+    opacity: 1;
+}
+}
+
+@keyframes sideMenuRightAni
+{
+100% {
+    left: -300px;
+    opacity: 1;
+}
+0% {
+    left: 0;
+    opacity: 1;
+}
+}
+
+.topNav{
+    margin-bottom: 0px;
+}
+
+.main.coolpase{
+    display: block;
+    margin-left: 0%;
+    transition: 0.3s;
+}
+
+.main.expand{
+    display: block;
+    margin-left: 200px;
+    transition: 0.3s;
+}
+kendo-tabstrip p {
+    margin: 0;
+    padding: 8px;
+}
+
+.sidemenu{
+    width: 200px;
+    overflow: hidden;
+    position: absolute !important;
+    background-color: transparent;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    z-index: 1;
+    height: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+.sidemenu.coolpase{
+    animation: 0.3s sideMenuRightAni forwards;
+}
+
+.sidemenu.expand{
+    width: 200px;
+    animation: 0.4s sideMenuLeftAni forwards;
+}
+
+#sildeMenu:hover{
+    background-color: #C7C7C7;
+}
