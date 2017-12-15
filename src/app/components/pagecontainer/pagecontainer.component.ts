@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { AfterViewInit } from '../../../../node_modules/_@angular_core@5.1.1@@angular/core/src/metadata/lifecycle_hooks';
 import { MainDirective } from '../../directive/maincompage/main.directive';
 @Component({
@@ -10,7 +10,9 @@ import { MainDirective } from '../../directive/maincompage/main.directive';
 export class PageContainerComponent implements AfterViewInit, OnDestroy {
 
     @ViewChild(MainDirective) mainHost: MainDirective;
+    private currentComponent: ComponentRef<any>;
 
+    components = [[]];
     interval: any;
     constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -18,6 +20,19 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
         clearInterval(this.interval);
         }
     ngAfterViewInit(): void {
-        throw new Error("Method not implemented.");
+        this.loadComponent();
+    }
+
+    loadComponent(key: string) {
+        this.currentAddIndex = (this.currentAddIndex + 1) % this.ads.length;
+    const adItem = this.ads[this.currentAddIndex];
+
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
+
+    const viewContainerRef = this.mainHost.viewContainerRef;
+    viewContainerRef.clear();
+
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    this.currentComponent = adItem.data;
     }
 }

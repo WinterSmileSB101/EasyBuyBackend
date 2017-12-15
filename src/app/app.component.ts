@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SideMenuComponent } from './components/sidemenu/sidemenu.component';
-
+import { PageContainerComponent } from './components/pagecontainer/pagecontainer.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

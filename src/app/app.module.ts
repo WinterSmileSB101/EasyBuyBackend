@@ -13,13 +13,15 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 // Imports the PanelBar
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SideMenuComponent } from './components/sidemenu/sidemenu.component';
+import { PageContainerComponent } from './components/pagecontainer/pagecontainer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    PageContainerComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
